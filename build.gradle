@@ -8,7 +8,7 @@ group = 'example'
 version = '0.0.1-SNAPSHOT'
 
 java {
-	sourceCompatibility = '21'
+	sourceCompatibility = '17'
 }
 
 repositories {
@@ -19,9 +19,10 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	
-	// Add the two dependencies below
 	implementation 'org.springframework.data:spring-data-jdbc'
 	implementation 'com.h2database:h2'
+	
+	implementation 'org.springframework.boot:spring-boot-starter-security'
 }
 
 tasks.named('bootBuildImage') {
@@ -39,10 +40,10 @@ test {
 
 		showExceptions true
 		exceptionFormat "full"
-		showCauses true
-		showStackTraces true
+		showCauses false
+		showStackTraces false
 
 		// Change to `true` for more verbose test output
-		showStandardStreams = true
+		showStandardStreams = false
 	}
 }
